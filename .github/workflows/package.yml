@@ -1,0 +1,9 @@
+name: Package safety
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  package:
+    uses: Akademie-Olympia/aco-arch-dotfiles/.github/workflows/component.yml@main
+    secrets:
+      DOTFILES_DISPATCH_TOKEN: ${{ secrets.DOTFILES_DISPATCH_TOKEN }}

@@ -1,0 +1,126 @@
+/* ============================================================================
+ * ACO rofi theme: a centred, Spotlight-like search window.
+ * Colours, font and rounding come from aco-theme; this file holds the layout.
+ * Override anything in your user copy; aco-menu adds small per-menu tweaks.
+ * ============================================================================ */
+@import "~/.config/aco/theme/rofi/colors.rasi"
+
+* {
+    background-color: transparent;
+    text-color: @aco-text;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    location: center;
+    anchor: center;
+    y-offset: -10%;
+    width: 42em;
+    border: 1px;
+    border-color: @aco-line;
+    border-radius: @aco-radius;
+    background-color: @aco-surface;
+}
+
+mainbox {
+    padding: 10px;
+    spacing: 8px;
+    children: [ inputbar, message, listview, mode-switcher ];
+}
+
+inputbar {
+    padding: 8px 10px;
+    spacing: 12px;
+    border-radius: @aco-radius-small;
+    background-color: @aco-field;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    font: @aco-font-large;
+    text-color: @aco-muted;
+    vertical-align: 0.5;
+}
+
+entry {
+    font: @aco-font-large;
+    vertical-align: 0.5;
+    placeholder: "Suchen …";
+    placeholder-color: @aco-muted;
+    cursor-color: @aco-accent;
+}
+
+message {
+    padding: 4px 10px;
+}
+
+textbox {
+    text-color: @aco-subtext;
+}
+
+listview {
+    lines: 7;
+    columns: 1;
+    fixed-height: false;
+    dynamic: true;
+    scrollbar: false;
+    spacing: 2px;
+}
+
+element {
+    padding: 7px 10px;
+    spacing: 12px;
+    border-radius: @aco-radius-small;
+    cursor: pointer;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    text-color: @aco-urgent;
+}
+
+element normal.active,
+element alternate.active {
+    text-color: @aco-accent;
+}
+
+element selected.normal,
+element selected.active,
+element selected.urgent {
+    background-color: @aco-accent;
+    text-color: @aco-on-accent;
+}
+
+element-icon {
+    size: 26px;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+    vertical-align: 0.5;
+    highlight: bold;
+}
+
+mode-switcher {
+    spacing: 6px;
+}
+
+button {
+    padding: 5px 12px;
+    border-radius: @aco-radius-small;
+    text-color: @aco-muted;
+    cursor: pointer;
+}
+
+button selected {
+    background-color: @aco-field;
+    text-color: @aco-text;
+}

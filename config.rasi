@@ -1,0 +1,35 @@
+/* ============================================================================
+ * ROFI - ACO launcher and menus (behaviour only; look: themes/aco.rasi)
+ * Started through aco-menu, so every menu of the desktop behaves the same.
+ * ============================================================================ */
+configuration {
+    modes: "drun,window";
+    show-icons: true;
+    icon-theme: "Adwaita";
+    terminal: "kitty";
+
+    display-drun: "Programme";
+    display-window: "Fenster";
+    display-run: "Befehl";
+    display-filebrowser: "Dateien";
+    display-calc: "Rechner";
+    display-emoji: "Emoji";
+
+    drun-display-format: "{name}[<span weight='light' size='small' alpha='60%'>  ·  {generic}</span>]";
+    drun-match-fields: "name,generic,exec,categories,keywords";
+    window-format: "{c}  ·  {t}";
+
+    matching: "normal";
+    sort: true;
+    sorting-method: "fzf";
+    case-sensitive: false;
+    cycle: true;
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+
+    kb-mode-next: "Control+Tab,Shift+Right";
+    kb-mode-previous: "Control+ISO_Left_Tab,Shift+Left";
+}
+
+@theme "aco"

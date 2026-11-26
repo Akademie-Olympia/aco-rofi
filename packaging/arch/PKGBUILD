@@ -1,0 +1,17 @@
+# Package-local recipe. Stage checksummed sources with packaging/arch/build.sh.
+pkgname=aco-arch-dotfiles-rofi
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='ACO launcher and menus (rofi) with the aco-menu command'
+arch=('any')
+url='https://github.com/Akademie-Olympia/aco-arch-dotfiles'
+license=('LicenseRef-arch-dotfiles-bundle')
+depends=('aco-arch-dotfiles-core>=0.3.0' 'aco-arch-dotfiles-aco-theme' 'rofi>=2.0' 'adwaita-icon-theme' 'kitty')
+optdepends=('rofi-calc: calculator tab in the launcher' 'rofi-emoji: emoji tab in the launcher')
+options=('!strip')
+source=('payload.tar.gz')
+sha256sums=('__SOURCE_SHA256__')
+
+package() {
+    cp -a "$srcdir/usr" "$pkgdir/"
+}
