@@ -16,6 +16,8 @@
 #   --grid               large image tiles, for example wallpapers (implies --icons)
 #   --index              print the row number instead of the text
 #   --markup             rows may contain Pango markup (for example coloured dots)
+#   --dropdown left|right  open below the bar at that edge like a menu bar menu,
+#                        without the search field (typing still filters)
 #
 # Exit status 1 when cancelled (Esc). Calling it while a menu is open closes that
 # menu and exits 130, so the same key opens and closes it and callers can tell
@@ -72,6 +74,16 @@ while (($#)); do
             ;;
         --index) args+=(-format i) ;;
         --markup) args+=(-markup-rows) ;;
+        --dropdown)
+            case $2 in
+                left) theme+='window { location: north west; anchor: north west; x-offset: 8px; }' ;;
+                right) theme+='window { location: north east; anchor: north east; x-offset: -8px; }' ;;
+                *) echo "aco-menu: --dropdown left|right" >&2; exit 2 ;;
+            esac
+            # Directly below the 32 px bar with the usual gap; a menu, not a search.
+            theme+='window { y-offset: 40px; width: 20em; } mainbox { children: [ message, listview ]; }'
+            theme+='listview { lines: 12; } element { padding: 6px 10px; }'
+            shift ;;
         *) echo "aco-menu: unknown option '$1' (see aco-menu --help)" >&2; exit 2 ;;
     esac
     shift
