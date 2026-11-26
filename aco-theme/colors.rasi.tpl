@@ -11,8 +11,9 @@
     aco-on-accent: {{on_accent}};
     aco-urgent: {{red}};
     aco-radius: {{radius}}px;
+    aco-radius-large: {{radius_large}}px;
     aco-radius-small: {{radius_small}}px;
-    aco-font-large: "{{ui_font}} 15";
-    aco-font-icon: "{{icon_font}} 16";
+    aco-font-large: "{{ui_font}} 17";
+    aco-font-icon: "{{icon_font}} 18";
     font: "{{ui_font}} 12";
 }

@@ -13,14 +13,15 @@
     spacing: 0;
 }
 
+/* Placed in the upper third like Spotlight; a large field, a short list. */
 window {
-    location: center;
-    anchor: center;
-    y-offset: -10%;
-    width: 42em;
+    location: north;
+    anchor: north;
+    y-offset: 22%;
+    width: 44em;
     border: 1px;
     border-color: @aco-line;
-    border-radius: @aco-radius;
+    border-radius: @aco-radius-large;
     background-color: @aco-surface;
 }
 
@@ -31,9 +32,9 @@ mainbox {
 }
 
 inputbar {
-    padding: 8px 10px;
+    padding: 10px 12px;
     spacing: 12px;
-    border-radius: @aco-radius-small;
+    border-radius: @aco-radius;
     background-color: @aco-field;
     children: [ prompt, entry ];
 }
@@ -72,7 +73,7 @@ listview {
 element {
     padding: 7px 10px;
     spacing: 12px;
-    border-radius: @aco-radius-small;
+    border-radius: @aco-radius;
     cursor: pointer;
 }
 
